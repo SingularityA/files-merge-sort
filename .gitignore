@@ -132,7 +132,10 @@ gradle-app.setting
 **/build/
 
 # Output files #
-src/main/resources/output/
-src/test/resources/output/
+src/main/resources/output/*
+src/test/resources/output/*
+
+!src/main/resources/output/.gitkeep
+!src/test/resources/output/.gitkeep
 
 # End of https://www.gitignore.io/api/java,gradle,intellij+all
