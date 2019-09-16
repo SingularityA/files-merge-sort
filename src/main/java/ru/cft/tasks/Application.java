@@ -13,11 +13,10 @@ import java.util.logging.Logger;
 
 public class Application {
 
-    private final static String root = System.getProperty("user.dir") + "\\src\\main\\resources\\";
     private final static Logger logger = Logger.getLogger(Application.class.getSimpleName());
 
     private final static Collection<Path> inputPaths = new ArrayList<>();
-    private static Path outputPath = Paths.get(root + "output\\output.txt");
+    private static Path outputPath;
 
     public static void main(String[] args) {
         CommandLineParser parser = new DefaultParser();
