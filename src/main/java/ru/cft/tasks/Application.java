@@ -1,6 +1,7 @@
 package ru.cft.tasks;
 
 import org.apache.commons.cli.*;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -35,7 +36,18 @@ public class Application {
         }
         outputPath = Paths.get(leftovers.get(0));
         for (int i = 1; i < leftovers.size(); i++) {
-            inputPaths.add(Paths.get(leftovers.get(i)));
+            Path path = Paths.get(leftovers.get(i));
+            if (Files.exists(path)) {
+                inputPaths.add(path);
+            }
+            else {
+                logger.info("File [" + path.toString() + "] doesn't exist. It will be ignored");
+            }
+        }
+
+        if (inputPaths.size() < 1) {
+            logger.info("You need to specify at list one correct input file");
+            return;
         }
 
         if (commandLine.hasOption("i")) {
