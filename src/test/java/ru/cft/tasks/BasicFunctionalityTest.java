@@ -16,7 +16,6 @@ public class BasicFunctionalityTest {
             Paths.get(root + "input\\input2.txt"),
             Paths.get(root + "input\\input3.txt")
     );
-    private final Path outputPath = Paths.get(root + "output\\output.txt");
 
     @Test
     public void testIntegersAscending() {
@@ -29,7 +28,7 @@ public class BasicFunctionalityTest {
         };
 
         FilesMerger<Integer> merger = new FilesMerger<>(filePool);
-        merger.merge(outputPath);
+        merger.merge(Paths.get(root + "output\\output1.txt"));
     }
 
     @Test
@@ -43,7 +42,7 @@ public class BasicFunctionalityTest {
         };
 
         FilesMerger<Integer> merger = new FilesMerger<>(filePool);
-        merger.merge(outputPath);
+        merger.merge(Paths.get(root + "output\\output2.txt"));
     }
 
     @Test
@@ -57,7 +56,7 @@ public class BasicFunctionalityTest {
         };
 
         FilesMerger<String> merger = new FilesMerger<>(filePool);
-        merger.merge(outputPath);
+        merger.merge(Paths.get(root + "output\\output3.txt"));
     }
 
     @Test
@@ -71,6 +70,6 @@ public class BasicFunctionalityTest {
         };
 
         FilesMerger<String> merger = new FilesMerger<>(filePool);
-        merger.merge(outputPath);
+        merger.merge(Paths.get(root + "output\\output4.txt"));
     }
 }
